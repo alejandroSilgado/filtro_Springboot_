@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landio - User page </title>
+    <link rel="shortcut icon" th:href="@{../favicon.svg}" type="image/svg+xml">
+    <link rel="stylesheet" th:href="@{../css/styleUser.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Mulish:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="user-info">
+                <img src="https://via.placeholder.com/50" alt="User Avatar" class="user-avatar">
+                <div class="user-details">
+                    <h3>[[${user.getFullname()}]]</h3>
+                    <p>[[${user.getEmail()}]]</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#mis-formularios"><i class="fas fa-file-alt"></i> Mis Formularios</a></li>
+                    <li><a href="#responder"><i class="fas fa-pen"></i> Responder</a></li>
+                    <li><a href="#estadisticas"><i class="fas fa-chart-bar"></i> Estadísticas</a></li>
+                    <li><a href="#configuracion"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+            <div class="logout">
+                <span sec:authorize="isAuthenticated">
+
+                <a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+
+                </span>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h2>Bienvenido, [[${user.getFullname()}]]</h2>
+        
+              <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar formularios...">
+                </div>
+            </header>
+            <section id="dashboard" class="section-content">
+                <div class="dashboard">
+                    <div class="card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <div class="card-content">
+                            <h2>Formularios en Curso</h2>
+                            <p class="number">3</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-clock"></i>
+                        <div class="card-content">
+                            <h2>Por Responder</h2>
+                            <p class="number">5</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="card-content">
+                            <h2>Completados</h2>
+                            <p class="number">12</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hot-forms">
+                    <h2>Formularios Populares</h2>
+                    <div class="form-list">
+                        <div class="form-item">
+                            <h3>Encuesta de Satisfacción</h3>
+                            <p>Respuestas: 1,234</p>
+                        </div>
+                        <div class="form-item">
+                            <h3>Feedback del Producto</h3>
+                            <p>Respuestas: 987</p>
+                        </div>
+                        <div class="form-item">
+                            <h3>Evaluación del Servicio</h3>
+                            <p>Respuestas: 756</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="mis-formularios" class="section-content">
+                <h2>Mis Formularios</h2>
+                <p>Aquí puedes ver y gestionar tus formularios creados.</p>
+                <!-- Agregar contenido para la sección de Mis Formularios -->
+            </section>
+            <section id="responder" class="section-content">
+                <h2>Responder Formularios</h2>
+                <p>Aquí puedes ver y responder a los formularios pendientes.</p>
+                <!-- Agregar contenido para la sección de Responder -->
+            </section>
+            <section id="estadisticas" class="section-content">
+                <h2>Estadísticas</h2>
+                <p>Aquí puedes ver las estadísticas de tus formularios.</p>
+                <!-- Agregar contenido para la sección de Estadísticas -->
+            </section>
+            <section id="configuracion" class="section-content">
+                <h2>Configuración</h2>
+                <p>Aquí puedes ajustar la configuración de tu cuenta y preferencias.</p>
+                <!-- Agregar contenido para la sección de Configuración -->
+            </section>
+        </main>
+    </div>
+    <script th:src="@{../js/scriptUser.js}"></script>
+</body>
+</html>
